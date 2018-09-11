@@ -1,4 +1,5 @@
 # infinityshop
+<<<<<<< HEAD
 This application was generated using JHipster 5.2.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.2.1](https://www.jhipster.tech/documentation-archive/v5.2.1).
 
 This is a "gateway" application intended to be part of a microservice architecture, please refer to the [Doing microservices with JHipster][] page of the documentation for more information.
@@ -153,3 +154,6 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [Protractor]: https://angular.github.io/protractor/
 [Leaflet]: http://leafletjs.com/
 [DefinitelyTyped]: http://definitelytyped.org/
+=======
+Retail ecommerce platform with features like online shopping, pos, loyalty and more
+>>>>>>> branch 'master' of https://github.com/SunitiSingh/infinityshop.git
