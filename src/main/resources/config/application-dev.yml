@@ -40,8 +40,8 @@ spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:mysql://localhost:3306/infinityshop?useUnicode=true&characterEncoding=utf8&useSSL=false
-        username: root
-        password:
+        username: infinityshop
+        password: infinityshop
         hikari:
             data-source-properties:
                 cachePrepStmts: true
