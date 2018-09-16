@@ -52,6 +52,10 @@ export class CommerceItemDetail extends React.Component<ICommerceItemDetailProps
             <dd>{commerceItemEntity.commerceOrderId ? commerceItemEntity.commerceOrderId : ''}</dd>
             <dt>Price</dt>
             <dd>{commerceItemEntity.priceId ? commerceItemEntity.priceId : ''}</dd>
+            <dt>Ship Info</dt>
+            <dd>{commerceItemEntity.shipInfoId ? commerceItemEntity.shipInfoId : ''}</dd>
+            <dt>Pay Info</dt>
+            <dd>{commerceItemEntity.payInfoId ? commerceItemEntity.payInfoId : ''}</dd>
             <dt>Shipcontainer</dt>
             <dd>
               {commerceItemEntity.shipcontainers

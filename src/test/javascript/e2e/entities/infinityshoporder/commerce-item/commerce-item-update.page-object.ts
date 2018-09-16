@@ -10,6 +10,8 @@ export default class CommerceItemUpdatePage {
   updateDateInput: ElementFinder = element(by.css('input#commerce-item-updateDate'));
   commerceOrderSelect: ElementFinder = element(by.css('select#commerce-item-commerceOrder'));
   priceSelect: ElementFinder = element(by.css('select#commerce-item-price'));
+  shipInfoSelect: ElementFinder = element(by.css('select#commerce-item-shipInfo'));
+  payInfoSelect: ElementFinder = element(by.css('select#commerce-item-payInfo'));
   shipcontainerSelect: ElementFinder = element(by.css('select#commerce-item-shipcontainer'));
   paymentSelect: ElementFinder = element(by.css('select#commerce-item-payment'));
 
@@ -85,6 +87,44 @@ export default class CommerceItemUpdatePage {
 
   getPriceSelectedOption() {
     return this.priceSelect.element(by.css('option:checked')).getText();
+  }
+
+  shipInfoSelectLastOption() {
+    this.shipInfoSelect
+      .all(by.tagName('option'))
+      .last()
+      .click();
+  }
+
+  shipInfoSelectOption(option) {
+    this.shipInfoSelect.sendKeys(option);
+  }
+
+  getShipInfoSelect() {
+    return this.shipInfoSelect;
+  }
+
+  getShipInfoSelectedOption() {
+    return this.shipInfoSelect.element(by.css('option:checked')).getText();
+  }
+
+  payInfoSelectLastOption() {
+    this.payInfoSelect
+      .all(by.tagName('option'))
+      .last()
+      .click();
+  }
+
+  payInfoSelectOption(option) {
+    this.payInfoSelect.sendKeys(option);
+  }
+
+  getPayInfoSelect() {
+    return this.payInfoSelect;
+  }
+
+  getPayInfoSelectedOption() {
+    return this.payInfoSelect.element(by.css('option:checked')).getText();
   }
 
   shipcontainerSelectLastOption() {

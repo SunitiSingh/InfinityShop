@@ -63,6 +63,14 @@ import commerceEPay, {
 import commerceBillingAddress, {
   CommerceBillingAddressState
 } from 'app/entities/infinityshoporder/commerce-billing-address/commerce-billing-address.reducer';
+// prettier-ignore
+import commerceItemShipInfo, {
+  CommerceItemShipInfoState
+} from 'app/entities/infinityshoporder/commerce-item-ship-info/commerce-item-ship-info.reducer';
+// prettier-ignore
+import commerceItemPayInfo, {
+  CommerceItemPayInfoState
+} from 'app/entities/infinityshoporder/commerce-item-pay-info/commerce-item-pay-info.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 export interface IRootState {
@@ -88,6 +96,8 @@ export interface IRootState {
   readonly commercePaymentCard: CommercePaymentCardState;
   readonly commerceEPay: CommerceEPayState;
   readonly commerceBillingAddress: CommerceBillingAddressState;
+  readonly commerceItemShipInfo: CommerceItemShipInfoState;
+  readonly commerceItemPayInfo: CommerceItemPayInfoState;
   /* jhipster-needle-add-reducer-type - JHipster will add reducer type here */
   readonly loadingBar: any;
 }
@@ -115,6 +125,8 @@ const rootReducer = combineReducers<IRootState>({
   commercePaymentCard,
   commerceEPay,
   commerceBillingAddress,
+  commerceItemShipInfo,
+  commerceItemPayInfo,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar
 });

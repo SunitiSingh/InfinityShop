@@ -83,6 +83,12 @@ export class CommerceItem extends React.Component<ICommerceItemProps, ICommerceI
                 <th>
                   Price <FontAwesomeIcon icon="sort" />
                 </th>
+                <th>
+                  Ship Info <FontAwesomeIcon icon="sort" />
+                </th>
+                <th>
+                  Pay Info <FontAwesomeIcon icon="sort" />
+                </th>
                 <th />
               </tr>
             </thead>
@@ -111,6 +117,20 @@ export class CommerceItem extends React.Component<ICommerceItemProps, ICommerceI
                   </td>
                   <td>
                     {commerceItem.priceId ? <Link to={`commerce-item-price/${commerceItem.priceId}`}>{commerceItem.priceId}</Link> : ''}
+                  </td>
+                  <td>
+                    {commerceItem.shipInfoId ? (
+                      <Link to={`commerce-item-ship-info/${commerceItem.shipInfoId}`}>{commerceItem.shipInfoId}</Link>
+                    ) : (
+                      ''
+                    )}
+                  </td>
+                  <td>
+                    {commerceItem.payInfoId ? (
+                      <Link to={`commerce-item-pay-info/${commerceItem.payInfoId}`}>{commerceItem.payInfoId}</Link>
+                    ) : (
+                      ''
+                    )}
                   </td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">

@@ -12,6 +12,10 @@ import { ICommerceOrder } from 'app/shared/model/infinityshoporder/commerce-orde
 import { getEntities as getCommerceOrders } from 'app/entities/infinityshoporder/commerce-order/commerce-order.reducer';
 import { ICommerceItemPrice } from 'app/shared/model/infinityshoporder/commerce-item-price.model';
 import { getEntities as getCommerceItemPrices } from 'app/entities/infinityshoporder/commerce-item-price/commerce-item-price.reducer';
+import { ICommerceItemShipInfo } from 'app/shared/model/infinityshoporder/commerce-item-ship-info.model';
+import { getEntities as getCommerceItemShipInfos } from 'app/entities/infinityshoporder/commerce-item-ship-info/commerce-item-ship-info.reducer';
+import { ICommerceItemPayInfo } from 'app/shared/model/infinityshoporder/commerce-item-pay-info.model';
+import { getEntities as getCommerceItemPayInfos } from 'app/entities/infinityshoporder/commerce-item-pay-info/commerce-item-pay-info.reducer';
 import { ICommerceShippingContainer } from 'app/shared/model/infinityshoporder/commerce-shipping-container.model';
 import { getEntities as getCommerceShippingContainers } from 'app/entities/infinityshoporder/commerce-shipping-container/commerce-shipping-container.reducer';
 import { ICommerceOrderPayment } from 'app/shared/model/infinityshoporder/commerce-order-payment.model';
@@ -30,6 +34,8 @@ export interface ICommerceItemUpdateState {
   idspayment: any[];
   commerceOrderId: number;
   priceId: number;
+  shipInfoId: number;
+  payInfoId: number;
 }
 
 export class CommerceItemUpdate extends React.Component<ICommerceItemUpdateProps, ICommerceItemUpdateState> {
@@ -40,6 +46,8 @@ export class CommerceItemUpdate extends React.Component<ICommerceItemUpdateProps
       idspayment: [],
       commerceOrderId: 0,
       priceId: 0,
+      shipInfoId: 0,
+      payInfoId: 0,
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -53,6 +61,8 @@ export class CommerceItemUpdate extends React.Component<ICommerceItemUpdateProps
 
     this.props.getCommerceOrders();
     this.props.getCommerceItemPrices();
+    this.props.getCommerceItemShipInfos();
+    this.props.getCommerceItemPayInfos();
     this.props.getCommerceShippingContainers();
     this.props.getCommerceOrderPayments();
   }
@@ -88,6 +98,8 @@ export class CommerceItemUpdate extends React.Component<ICommerceItemUpdateProps
       commerceItemEntity,
       commerceOrders,
       commerceItemPrices,
+      commerceItemShipInfos,
+      commerceItemPayInfos,
       commerceShippingContainers,
       commerceOrderPayments,
       loading,
@@ -196,6 +208,32 @@ export class CommerceItemUpdate extends React.Component<ICommerceItemUpdateProps
                   </AvInput>
                 </AvGroup>
                 <AvGroup>
+                  <Label for="shipInfo.id">Ship Info</Label>
+                  <AvInput id="commerce-item-shipInfo" type="select" className="form-control" name="shipInfoId">
+                    <option value="" key="0" />
+                    {commerceItemShipInfos
+                      ? commerceItemShipInfos.map(otherEntity => (
+                          <option value={otherEntity.id} key={otherEntity.id}>
+                            {otherEntity.id}
+                          </option>
+                        ))
+                      : null}
+                  </AvInput>
+                </AvGroup>
+                <AvGroup>
+                  <Label for="payInfo.id">Pay Info</Label>
+                  <AvInput id="commerce-item-payInfo" type="select" className="form-control" name="payInfoId">
+                    <option value="" key="0" />
+                    {commerceItemPayInfos
+                      ? commerceItemPayInfos.map(otherEntity => (
+                          <option value={otherEntity.id} key={otherEntity.id}>
+                            {otherEntity.id}
+                          </option>
+                        ))
+                      : null}
+                  </AvInput>
+                </AvGroup>
+                <AvGroup>
                   <Label for="commerceShippingContainers">Shipcontainer</Label>
                   <AvInput
                     id="commerce-item-shipcontainer"
@@ -255,6 +293,8 @@ export class CommerceItemUpdate extends React.Component<ICommerceItemUpdateProps
 const mapStateToProps = (storeState: IRootState) => ({
   commerceOrders: storeState.commerceOrder.entities,
   commerceItemPrices: storeState.commerceItemPrice.entities,
+  commerceItemShipInfos: storeState.commerceItemShipInfo.entities,
+  commerceItemPayInfos: storeState.commerceItemPayInfo.entities,
   commerceShippingContainers: storeState.commerceShippingContainer.entities,
   commerceOrderPayments: storeState.commerceOrderPayment.entities,
   commerceItemEntity: storeState.commerceItem.entity,
@@ -265,6 +305,8 @@ const mapStateToProps = (storeState: IRootState) => ({
 const mapDispatchToProps = {
   getCommerceOrders,
   getCommerceItemPrices,
+  getCommerceItemShipInfos,
+  getCommerceItemPayInfos,
   getCommerceShippingContainers,
   getCommerceOrderPayments,
   getEntity,

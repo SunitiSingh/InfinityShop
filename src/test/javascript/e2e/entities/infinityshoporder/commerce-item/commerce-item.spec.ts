@@ -41,6 +41,8 @@ describe('CommerceItem e2e test', () => {
     expect(await commerceItemUpdatePage.getUpdateDateInput()).to.contain('2001-01-01T02:30');
     commerceItemUpdatePage.commerceOrderSelectLastOption();
     commerceItemUpdatePage.priceSelectLastOption();
+    commerceItemUpdatePage.shipInfoSelectLastOption();
+    commerceItemUpdatePage.payInfoSelectLastOption();
     // commerceItemUpdatePage.shipcontainerSelectLastOption();
     // commerceItemUpdatePage.paymentSelectLastOption();
     await commerceItemUpdatePage.save();

@@ -17,6 +17,8 @@ import CommerceOrderPayment from './infinityshoporder/commerce-order-payment';
 import CommercePaymentCard from './infinityshoporder/commerce-payment-card';
 import CommerceEPay from './infinityshoporder/commerce-e-pay';
 import CommerceBillingAddress from './infinityshoporder/commerce-billing-address';
+import CommerceItemShipInfo from './infinityshoporder/commerce-item-ship-info';
+import CommerceItemPayInfo from './infinityshoporder/commerce-item-pay-info';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 const Routes = ({ match }) => (
@@ -36,6 +38,8 @@ const Routes = ({ match }) => (
       <ErrorBoundaryRoute path={`${match.url}/commerce-payment-card`} component={CommercePaymentCard} />
       <ErrorBoundaryRoute path={`${match.url}/commerce-e-pay`} component={CommerceEPay} />
       <ErrorBoundaryRoute path={`${match.url}/commerce-billing-address`} component={CommerceBillingAddress} />
+      <ErrorBoundaryRoute path={`${match.url}/commerce-item-ship-info`} component={CommerceItemShipInfo} />
+      <ErrorBoundaryRoute path={`${match.url}/commerce-item-pay-info`} component={CommerceItemPayInfo} />
       {/* jhipster-needle-add-route-path - JHipster will routes here */}
     </Switch>
   </div>

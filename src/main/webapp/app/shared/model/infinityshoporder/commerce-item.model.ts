@@ -10,6 +10,8 @@ export interface ICommerceItem {
   updateDate?: Moment;
   commerceOrderId?: number;
   priceId?: number;
+  shipInfoId?: number;
+  payInfoId?: number;
   shipcontainers?: ICommerceShippingContainer[];
   payments?: ICommerceOrderPayment[];
 }
